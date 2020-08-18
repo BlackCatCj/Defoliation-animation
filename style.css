@@ -53,6 +53,8 @@ section .set div {
   /* 设置为none就不会显示这个元素 */
   /* display: none; */
 }
+
+/* ?这是给每个img（落叶）设置不同的初始位置和效果时间 */
 section .set div:nth-child(1) {
   left: 20%;
   animation: animate 15s linear infinite;
@@ -92,6 +94,8 @@ section .set div:nth-child(8) {
   left: 60%;
   animation: animate 15s linear infinite;
 }
+
+/* ?落叶的动画效果 */
 @keyframes animate {
   0% {
     /*opacity 规定不透明度。从 0.0 （完全透明）到 1.0（完全不透明） */
@@ -132,6 +136,7 @@ section .set div:nth-child(8) {
   filter: blur(2px);
 }
 .set3 {
+  /* ?通过翻转x轴180度，把动画效果也反转了，变成从下到上了 */
   /* ! rotateX(180deg) 沿着X轴进行180的旋转，导致动画也从尾部想头部执行，形成到这播放的效果 */
   transform: scale(0.8) rotateX(180deg);
   filter: blur(4px);
