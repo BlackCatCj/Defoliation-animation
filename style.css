@@ -15,6 +15,7 @@ section {
   justify-content: center;
   align-items: center;
 }
+/* 将图片填充满设定的div大小 */
 section img {
   width: 100%;
   height: 100%;
@@ -40,6 +41,7 @@ section .set {
   pointer-events: none;
   /* border: 1px solid red; */
 }
+/* 设定包裹img的div大小 */
 section .set div {
   /* 将每一个包裹图片的div都设置为绝对定位，互不影响 */
   position: absolute;
