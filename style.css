@@ -1,0 +1,136 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  /* radial-gradient 中心渐变色 */
+  background: radial-gradient(#333, #000);
+  /* background:#000; */
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+section img {
+  width: 100%;
+  height: 100%;
+  /* border: 1px solid gold; */
+}
+section h2 {
+  color: rgba(255, 255, 255, 0.753);
+  font-size: 8em;
+  /* border: 1px solid blue; */
+  /*uppercase 用于将英文转换成大写 */
+  /* 对中文没效果的 */
+  /* text-transform: uppercase; */
+}
+section .set {
+  /* 绝对定位 */
+  /* 使得set-div 不会跟h2有影响，因为绝对定位不会对兄弟元素有影响 */
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  /* 将set-div这一层设置为永远不会有鼠标事件，这样想用鼠标拖拽图片就不会有效果，防止图片被盗取 */
+  pointer-events: none;
+  /* border: 1px solid red; */
+}
+section .set div {
+  /* 将每一个包裹图片的div都设置为绝对定位，互不影响 */
+  position: absolute;
+  /* 此元素将显示为块级元素，此元素前后会带有换行符 */
+  display: block;
+  width: 100px;
+  height: 100px;
+  /* border: 1px solid #000; */
+  /* 设置为none就不会显示这个元素 */
+  /* display: none; */
+}
+section .set div:nth-child(1) {
+  left: 20%;
+  animation: animate 15s linear infinite;
+  /* 定义动画开始前等待的时间，以秒或毫秒计。默认值是 0 */
+  /* 允许负值，eg:-2s 使动画马上开始，但跳过 2 秒进入动画*/
+  animation-delay: -7s;
+}
+section .set div:nth-child(2) {
+  left: 50%;
+  animation: animate 20s linear infinite;
+  animation-delay: -5s;
+}
+section .set div:nth-child(3) {
+  left: 70%;
+  animation: animate 20s linear infinite;
+  animation-delay: 0s;
+}
+section .set div:nth-child(4) {
+  left: 0%;
+  animation: animate 15s linear infinite;
+  animation-delay: -5s;
+}
+section .set div:nth-child(5) {
+  left: 85%;
+  animation: animate 18s linear infinite;
+  animation-delay: -10s;
+}
+section .set div:nth-child(6) {
+  left: 0%;
+  animation: animate 12s linear infinite;
+}
+section .set div:nth-child(7) {
+  left: 15%;
+  animation: animate 14s linear infinite;
+}
+section .set div:nth-child(8) {
+  left: 60%;
+  animation: animate 15s linear infinite;
+}
+@keyframes animate {
+  0% {
+    /*opacity 规定不透明度。从 0.0 （完全透明）到 1.0（完全不透明） */
+    opacity: 0;
+    /* 这样会一开始在屏幕上方之外 */
+    top: -10%;
+    /* translateX 元素仅在水平方向移动 */
+    transform: translateX(10px) rotate(0deg);
+  }
+  10% {
+    opacity: 1;
+  }
+  20% {
+    /*  rotate(45deg) 以中心点为旋转点 参数为正时，顺时针旋转；参数为负时，逆时针旋转 */
+    transform: translateX(-10px) rotate(72deg);
+  }
+  40% {
+    transform: translateX(10px) rotate(144deg);
+  }
+  60% {
+    transform: translateX(-10px) rotate(216deg);
+  }
+  80% {
+    transform: translateX(10px) rotate(288deg);
+  }
+  100% {
+    /* 结束时到屏幕下方之外 */
+    top: 110%;
+    transform: translateX(10px) rotate(360deg);
+  }
+}
+
+/*  */
+.set2 {
+  /* 让一个元素围绕纵坐标(垂直轴)旋转180,相当于翻个了面，镜像，但仍是从上向下运行 */
+  transform: scale(2) rotateY(180deg);
+  /* 较大的值会产生更多模糊 默认为0*/
+  filter: blur(2px);
+}
+.set3 {
+  /* ! rotateX(180deg) 沿着X轴进行180的旋转，导致动画也从尾部想头部执行，形成到这播放的效果 */
+  transform: scale(0.8) rotateX(180deg);
+  filter: blur(4px);
+}
